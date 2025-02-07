@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | SpyZ Feed</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Initial theme check to prevent flash -->
+    <script>
+        if (localStorage.getItem("darkTheme") === "true") {
+            document.documentElement.classList.add("dark");
+        }
+    </script>
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            margin: 1rem 0 2rem 0;
+            color: var(--text-color);
+        }
+
+        .error-description {
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-container">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-message">Page Not Found</h2>
+            <p class="error-description">
+                The page you're looking for doesn't exist or has been moved.
+            </p>
+            <a href="/index.html" class="back-button">Back to Home</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { loadComponents } from '/js/components.js';
+        import { initializeAuth } from '/js/auth.js';
+        import { initializeTheme } from '/js/theme.js';
+    
+        // Make sure body exists before trying to modify it
+        if (document.body) {
+            const savedTheme = localStorage.getItem("darkTheme");
+            if (savedTheme === "true") {
+                document.body.classList.add("dark");
+            }
+        }
+    
+        // Initialize components after DOM is loaded
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await loadComponents();
+                await initializeAuth();
+                initializeTheme();
+                
+                // Debug logging
+                document.addEventListener('themeToggle', () => {
+                    console.log('Theme toggle event handled');
+                });
+            } catch (error) {
+                console.error('Initialization failed:', error);
+                document.body.innerHTML = `
+                    <div class="error-message">
+                        <p><strong>Error:</strong> Failed to initialize the application.</p>
+                        <p>Details: ${error.message}</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

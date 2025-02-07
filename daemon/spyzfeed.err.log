@@ -1,0 +1,132 @@
+node:fs:562
+  return binding.open(
+                 ^
+
+Error: ENOENT: no such file or directory, open 'C:\wacs\certificates\spyzfeed.xyz\spyzfeed.xyz-key.pem'
+    at Object.openSync (node:fs:562:18)
+    at Object.readFileSync (node:fs:446:35)
+    at Object.<anonymous> (C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\server.js:25:13)
+    at Module._compile (node:internal/modules/cjs/loader:1562:14)
+    at Object..js (node:internal/modules/cjs/loader:1699:10)
+    at Module.load (node:internal/modules/cjs/loader:1313:32)
+    at Function._load (node:internal/modules/cjs/loader:1123:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1335:12) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\wacs\\certificates\\spyzfeed.xyz\\spyzfeed.xyz-key.pem'
+}
+
+Node.js v22.13.1
+node:fs:562
+  return binding.open(
+                 ^
+
+Error: ENOENT: no such file or directory, open 'C:\wacs\certificates\spyzfeed.xyz\spyzfeed.xyz-key.pem'
+    at Object.openSync (node:fs:562:18)
+    at Object.readFileSync (node:fs:446:35)
+    at Object.<anonymous> (C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\server.js:25:13)
+    at Module._compile (node:internal/modules/cjs/loader:1562:14)
+    at Object..js (node:internal/modules/cjs/loader:1699:10)
+    at Module.load (node:internal/modules/cjs/loader:1313:32)
+    at Function._load (node:internal/modules/cjs/loader:1123:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1335:12) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\wacs\\certificates\\spyzfeed.xyz\\spyzfeed.xyz-key.pem'
+}
+
+Node.js v22.13.1
+node:fs:562
+  return binding.open(
+                 ^
+
+Error: ENOENT: no such file or directory, open 'C:\wacs\certificates\spyzfeed.xyz\spyzfeed.xyz-key.pem'
+    at Object.openSync (node:fs:562:18)
+    at Object.readFileSync (node:fs:446:35)
+    at Object.<anonymous> (C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\server.js:25:13)
+    at Module._compile (node:internal/modules/cjs/loader:1562:14)
+    at Object..js (node:internal/modules/cjs/loader:1699:10)
+    at Module.load (node:internal/modules/cjs/loader:1313:32)
+    at Function._load (node:internal/modules/cjs/loader:1123:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1335:12) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\wacs\\certificates\\spyzfeed.xyz\\spyzfeed.xyz-key.pem'
+}
+
+Node.js v22.13.1
+node:fs:562
+  return binding.open(
+                 ^
+
+Error: ENOENT: no such file or directory, open 'C:\wacs\certificates\spyzfeed.xyz\spyzfeed.xyz-key.pem'
+    at Object.openSync (node:fs:562:18)
+    at Object.readFileSync (node:fs:446:35)
+    at Object.<anonymous> (C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\server.js:25:13)
+    at Module._compile (node:internal/modules/cjs/loader:1562:14)
+    at Object..js (node:internal/modules/cjs/loader:1699:10)
+    at Module.load (node:internal/modules/cjs/loader:1313:32)
+    at Function._load (node:internal/modules/cjs/loader:1123:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1335:12) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\wacs\\certificates\\spyzfeed.xyz\\spyzfeed.xyz-key.pem'
+}
+
+Node.js v22.13.1
+node:fs:562
+  return binding.open(
+                 ^
+
+Error: ENOENT: no such file or directory, open 'C:\wacs\certificates\spyzfeed.xyz\spyzfeed.xyz-key.pem'
+    at Object.openSync (node:fs:562:18)
+    at Object.readFileSync (node:fs:446:35)
+    at Object.<anonymous> (C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\server.js:25:13)
+    at Module._compile (node:internal/modules/cjs/loader:1562:14)
+    at Object..js (node:internal/modules/cjs/loader:1699:10)
+    at Module.load (node:internal/modules/cjs/loader:1313:32)
+    at Function._load (node:internal/modules/cjs/loader:1123:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1335:12) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\wacs\\certificates\\spyzfeed.xyz\\spyzfeed.xyz-key.pem'
+}
+
+Node.js v22.13.1
+node:fs:562
+  return binding.open(
+                 ^
+
+Error: ENOENT: no such file or directory, open 'C:\wacs\certificates\spyzfeed.xyz\spyzfeed.xyz-key.pem'
+    at Object.openSync (node:fs:562:18)
+    at Object.readFileSync (node:fs:446:35)
+    at Object.<anonymous> (C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\server.js:25:13)
+    at Module._compile (node:internal/modules/cjs/loader:1562:14)
+    at Object..js (node:internal/modules/cjs/loader:1699:10)
+    at Module.load (node:internal/modules/cjs/loader:1313:32)
+    at Function._load (node:internal/modules/cjs/loader:1123:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1335:12) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\wacs\\certificates\\spyzfeed.xyz\\spyzfeed.xyz-key.pem'
+}
+
+Node.js v22.13.1

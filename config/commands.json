@@ -1,0 +1,1343 @@
+{
+  "roles": {
+    "public": {
+      "name": "Public",
+      "commands": [
+        {
+          "name": "Link",
+          "command": "/link <console> <name> [link-to]",
+          "description": "Link your console gaming account to your Discord.",
+          "tags": ["account", "linking", "console", "verification"],
+          "tutorial": {
+            "steps": [
+              "Use /link command",
+              "Select your console (Xbox or Playstation)",
+              "Enter your console account name",
+              "Wait for confirmation of link"
+            ],
+            "notes": "Can be used in #commands or #newcomerChat channels. Helper+ can link accounts for other users."
+          },
+          "categories": {
+            "Required Options": [
+              {"console": "Choose between Xbox or Playstation"},
+              {"name": "Your console account name"}
+            ],
+            "Helper Options": [
+              {"link-to": "Optional: @mention user to link account to"},
+              {"Permission": "Only Helpers can link accounts for others"}
+            ],
+            "Console Types": [
+              {"Xbox": "Link Xbox Gamertag"},
+              {"Playstation": "Link PSN Account"}
+            ],
+            "Usage Details": [
+              {"Channels": "Available in commands and newcomerChat"},
+              {"Permissions": "No role requirement for self-linking"},
+              {"Visibility": "Response visible to everyone"},
+              {"Verification": "Account ownership may be verified"}
+            ]
+          }
+        }
+        
+      ]
+    },
+    "rookie": {
+      "name": "Rookie",
+      "commands": [
+        {
+          "name": "Ban",
+          "command": "/ban",
+          "description": "Gameserver ban commands for managing player bans.",
+          "tags": ["moderation", "admin", "punishment", "players"],
+          "tutorial": {
+            "steps": [
+              "Use /ban followed by one of these subcommands: add, remove, info, or appeal",
+              "For banning: /ban add <player> <reason> [minutes]",
+              "For unbanning: /ban remove <player>",
+              "For ban info: /ban info <player>",
+              "For appealing auto-bans: /ban appeal"
+            ],
+            "notes": "Rookie moderators can only ban for up to 24 hours (1440 minutes). Higher roles can issue permanent bans."
+          },
+          "categories": {
+            "Subcommands": [
+              {"add": "Add a player to the banlist (requires player name/mention, reason, and optional duration)"},
+              {"remove": "Remove a player from the banlist (Staff+ only)"},
+              {"info": "Get information about an existing ban"},
+              {"appeal": "Appeal your ban if you were auto-banned"}
+            ],
+            "Usage Limits": [
+              {"Ban Duration": "Rookies limited to 24 hours maximum"},
+              {"Channels": "Can only be used in #commands and #ban-appeals channels"},
+              {"Auto-ban Appeals": "Only works for automatic PvP-related bans"}
+            ],
+            "Ban Options": [
+              {"Duration": "Specify minutes (0 or omit for permanent - Moderator+ only)"},
+              {"Multiple Players": "Can ban multiple players using commas"},
+              {"Victim Bans": "Players can ban their killers if killed outside PvP zones"}
+            ]
+          }
+        },
+        {
+          "name": "Coin Calculator",
+          "command": "/coin-calculator <amount>",
+          "description": "Convert coin to USD.",
+          "tags": ["economy", "currency", "conversion"],
+          "tutorial": {
+            "steps": [
+              "Use /coin-calculator followed by the amount of coins",
+              "Enter the amount of coins you want to convert",
+              "The bot will show you the USD equivalent",
+              "Optional: Visit coin.spyzfeed.xyz to purchase coins"
+            ],
+            "notes": "This command can only be used in the commands channel."
+          },
+          "categories": {
+            "Usage": [
+              {"Command": "/coin-calculator <amount>"},
+              {"Channel Restriction": "Can only be used in #commands channel"},
+              {"Permission": "Requires Rookie role"}
+            ],
+            "Options": [
+              {"amount": "The number of coins to convert (required)"}
+            ],
+            "Response": [
+              {"Format": "Shows coin amount and USD equivalent"},
+              {"Visibility": "Response is only visible to the command user"},
+              {"Purchase Link": "Includes link to coin purchase website"}
+            ]
+          }
+        },
+        {
+          "name": "Commands",
+          "command": "/commands",
+          "description": "View information on all of the commands.",
+          "tags": ["help", "information", "guide", "documentation"],
+          "tutorial": {
+            "steps": [
+              "Type /commands in any channel",
+              "View the list of all available commands",
+              "Use the dropdown menu to select a specific command for detailed information",
+              "Browse through command options and descriptions"
+            ],
+            "notes": "The command menu will expire after 120 seconds of inactivity. Only commands you have permission to use will be shown."
+          },
+          "categories": {
+            "Features": [
+              {"All Commands View": "Shows a complete list of available commands"},
+              {"Detailed View": "Provides in-depth information about specific commands"},
+              {"Interactive Menu": "Dropdown menu for easy command navigation"},
+              {"Permission Based": "Only shows commands you have access to"}
+            ],
+            "Menu Options": [
+              {"All Commands": "View the complete list of commands"},
+              {"Individual Commands": "Select specific commands for detailed information"}
+            ],
+            "Display Information": [
+              {"Command Name": "Shows the command name and description"},
+              {"Options": "Lists all available options for each command"},
+              {"Subcommands": "Displays nested command options if available"},
+              {"Choices": "Shows available choices for applicable options"}
+            ],
+            "Response Format": [
+              {"Embed": "Information is displayed in a formatted embed"},
+              {"Interactive": "Includes dropdown menu for navigation"},
+              {"Timeout": "Menu expires after 120 seconds"},
+              {"Visibility": "Response is only visible to the command user"}
+            ]
+          }
+        },
+        {
+          "name": "Faction",
+          "command": "/faction",
+          "description": "Manage your faction.",
+          "tags": ["factions", "management", "groups", "organization"],
+          "tutorial": {
+            "steps": [
+              "Use /faction to view all factions or your faction details",
+              "Select from available options in the dropdown menu",
+              "Follow the prompts to manage your faction",
+              "Changes will be logged in the faction log channel"
+            ],
+            "notes": "Some options require specific faction ranks. Menu expires after 120 seconds of inactivity."
+          },
+          "categories": {
+            "Member Commands": [
+              {"Leave": "Leave your current faction (if permitted)"},
+              {"Invite": "Invite new members (requires invite permission)"},
+              {"Kick": "Remove members from faction (requires kick permission)"},
+              {"Change Rank": "Modify member ranks (requires promote/demote permission)"},
+              {"Rename": "Change faction name (requires rename permission)"},
+              {"Rename Ranks": "Modify rank names (requires rename permission)"},
+              {"Mission Statement": "Set faction mission (requires permission)"}
+            ],
+            "Moderator Commands": [
+              {"Change Leader": "Transfer faction leadership"},
+              {"Change Color": "Modify faction color"},
+              {"Create": "Create a new faction"},
+              {"Delete": "Remove an existing faction"}
+            ],
+            "Rank Structure": [
+              {"Leader": "Highest rank with all permissions"},
+              {"CoLeader": "Second in command"},
+              {"Commander": "Senior members"},
+              {"Member": "Standard members"},
+              {"Recruit": "New members"}
+            ],
+            "Response Format": [
+              {"Display": "Shows faction information in embedded format"},
+              {"Interactive": "Uses dropdown menus for options"},
+              {"Logging": "All changes are logged in faction channel"},
+              {"Visibility": "Responses are ephemeral (only visible to command user)"}
+            ]
+          }
+        },
+        {
+          "name": "Friends",
+          "command": "/friends",
+          "description": "Manage your in-game friends list.",
+          "tags": ["social", "friends", "players", "management"],
+          "tutorial": {
+            "steps": [
+              "Use /friends followed by a subcommand",
+              "Choose add, remove, or list to manage your friends",
+              "For adding/removing, @mention the desired user",
+              "View your complete friends list with the list subcommand"
+            ],
+            "notes": "This command can only be used in the commands channel. Friends list shows Discord, Xbox, and PSN information."
+          },
+          "categories": {
+            "Subcommands": [
+              {"add": "Add a player to your friends list (@mention required)"},
+              {"remove": "Remove a player from your friends list (@mention required)"},
+              {"list": "View your complete friends list with platform details"}
+            ],
+            "Friend Information": [
+              {"Discord": "Shows Discord username and mention"},
+              {"Xbox": "Displays linked Xbox Gamertags"},
+              {"PSN": "Shows linked PlayStation Network names"}
+            ],
+            "Usage Limits": [
+              {"Channel Restriction": "Can only be used in #commands channel"},
+              {"Permissions": "Requires Rookie role"},
+              {"Visibility": "Responses are only visible to command user"}
+            ],
+            "Response Format": [
+              {"Add/Remove": "Confirmation message of action"},
+              {"List": "Embedded message with friend details"},
+              {"Empty List": "Notification if no friends added"},
+              {"Invalid User": "Error message if user not found"}
+            ]
+          }
+        },
+        {
+          "name": "Leaders",
+          "command": "/leaders",
+          "description": "View various server leaderboards.",
+          "tags": ["leaderboard", "statistics", "rankings", "pvp"],
+          "tutorial": {
+            "steps": [
+              "Use /leaders to open the leaderboard menu",
+              "Select a category from the dropdown menu",
+              "View top 25 players for selected category",
+              "Use menu to switch between different leaderboards"
+            ],
+            "notes": "Menu expires after 120 seconds. All leaderboards show top 25 players."
+          },
+          "categories": {
+            "Time Statistics": [
+              {"Time Played": "Total time played on server"},
+              {"Time Played Today": "Time played in last 24 hours"},
+              {"Time Played this Week": "Time played this week"},
+              {"Time Played this Month": "Time played this month"},
+              {"Longest Life": "Longest survival time"}
+            ],
+            "Player Statistics": [
+              {"Coin": "Most currency accumulated"},
+              {"Distance Traveled": "Total distance moved in meters"},
+              {"Times Knocked Out": "Environmental knockout count"}
+            ],
+            "PVP Statistics": [
+              {"Knock Outs": "Most players knocked out"},
+              {"Times Knocked Out": "Most times knocked out by players"},
+              {"Kills": "Most player kills"},
+              {"Longest Kill Shots": "Furthest successful kills"},
+              {"Longest Shots": "Furthest shots taken"}
+            ],
+            "Display Format": [
+              {"Ranking": "Shows numerical placement (1-25)"},
+              {"Player": "Displays Discord mention"},
+              {"Stat": "Shows relevant statistic value"},
+              {"Updates": "Real-time stat tracking"}
+            ]
+          }
+        },
+        {
+          "name": "Location",
+          "command": "/location [updated] [target]",
+          "description": "Get player's last known location or request location updates.",
+          "tags": ["location", "tracking", "player", "zones"],
+          "tutorial": {
+            "steps": [
+              "Use /location to see your current location",
+              "Optional: Use 'updated' option for DM updates",
+              "Choose between player or item fold location updates",
+              "Staff can check other players' locations using target option"
+            ],
+            "notes": "Location updates are sent via DM after the next log update. Staff can check multiple players using commas."
+          },
+          "categories": {
+            "Basic Options": [
+              {"Default": "Shows current last known location"},
+              {"updated": "Request DM notification of next location update"}
+            ],
+            "Update Types": [
+              {"Player Location": "Track player's next position"},
+              {"Item Fold Location": "Track next fold location"}
+            ],
+            "Staff Features": [
+              {"target": "Check specific player locations"},
+              {"Multiple Targets": "Check multiple players using commas"},
+              {"Permission": "Requires Staff role to use target option"}
+            ],
+            "Response Format": [
+              {"Visibility": "Responses are ephemeral (only visible to command user)"},
+              {"Updates": "Location updates sent via DM"},
+              {"Zone Info": "Shows zone and area information"},
+              {"Error Handling": "Notifies if player not found"}
+            ]
+          }
+        },
+        {
+          "name": "Lottery",
+          "command": "/lottery",
+          "description": "Purchase tickets for daily and weekly lottery drawings.",
+          "tags": ["gambling", "lottery", "economy", "tickets"],
+          "tutorial": {
+            "steps": [
+              "Use /lottery to purchase tickets",
+              "Receive both daily and weekly tickets",
+              "View current jackpot amounts",
+              "Check your remaining daily ticket purchases"
+            ],
+            "notes": "Limited to 3 tickets per day. Drawings occur at 12AM EST. Requires cooldown between purchases."
+          },
+          "categories": {
+            "Ticket Information": [
+              {"Daily Ticket": "75% of ticket price goes to daily jackpot"},
+              {"Weekly Ticket": "25% of ticket price goes to weekly jackpot"},
+              {"Purchase Limit": "Maximum 3 tickets per day"},
+              {"Cost": "Set coin amount per ticket pair"}
+            ],
+            "Requirements": [
+              {"Channel": "Must be used in #workGamble channel"},
+              {"Cooldown": "Time required between purchases"},
+              {"Balance": "Must have sufficient coin balance"},
+              {"Role": "Requires Rookie role"}
+            ],
+            "Jackpot Details": [
+              {"Daily Drawing": "Occurs every day at 12AM EST"},
+              {"Weekly Drawing": "Accumulates throughout the week"},
+              {"Viewing": "Shows current jackpot amounts"},
+              {"Updates": "Jackpot amounts update after each purchase"}
+            ],
+            "Response Format": [
+              {"Embed": "Shows ticket numbers and jackpot amounts"},
+              {"Tickets Remaining": "Displays daily purchase count"},
+              {"Visibility": "Response visible to all users"},
+              {"Error Messages": "Shows insufficient funds or cooldown"}
+            ]
+          }
+        },
+        {
+          "name": "Redeem",
+          "command": "/redeem <code>",
+          "description": "Redeem a one-time code for coin rewards.",
+          "tags": ["economy", "rewards", "codes", "coin"],
+          "tutorial": {
+            "steps": [
+              "Use /redeem followed by your code",
+              "Enter the redemption code exactly as provided",
+              "Wait for confirmation message",
+              "Receive coin reward if code is valid"
+            ],
+            "notes": "Codes can only be used once. Command must be used in #commands channel."
+          },
+          "categories": {
+            "Usage": [
+              {"Format": "Enter code exactly as provided"},
+              {"Channel": "Only usable in #commands channel"},
+              {"Permission": "Requires Rookie role"},
+              {"Visibility": "Responses are ephemeral (only visible to you)"}
+            ],
+            "Code Types": [
+              {"One-Time Use": "Each code can only be redeemed once"},
+              {"Server Specific": "Codes are tracked per server"},
+              {"Coin Rewards": "Grants specified amount of coin"},
+              {"Support Codes": "Special codes for supporter rewards"}
+            ],
+            "Response Format": [
+              {"Success": "Shows coin amount and confirmation"},
+              {"Invalid Code": "Notifies if code doesn't exist"},
+              {"Already Used": "Indicates if code was previously redeemed"},
+              {"Logging": "Transactions logged in coin transactions channel"}
+            ],
+            "Transaction Details": [
+              {"Recording": "Tracks redemption time and user"},
+              {"Server Log": "Records which server code was used in"},
+              {"Balance Update": "Automatically updates user's coin balance"},
+              {"Audit Trail": "Maintains complete redemption history"}
+            ]
+          }
+        },
+        {
+          "name": "Roulette",
+          "command": "/roulette <bet>",
+          "description": "Play roulette with your coin.",
+          "tags": ["gambling", "games", "coin", "roulette"],
+          "tutorial": {
+            "steps": [
+              "Use /roulette followed by your bet amount",
+              "Select a color to bet on:",
+              "- Red (1.5x multiplier)",
+              "- Black (2x multiplier)",
+              "- Green (5x multiplier)",
+              "Wait for the result to see if you won"
+            ],
+            "notes": "Maximum bet is 250 coin. Has cooldown between plays. Must be used in #workGamble channel."
+          },
+          "categories": {
+            "Betting Options": [
+              {"Red": "1.5x multiplier on odd numbers"},
+              {"Black": "2x multiplier on even numbers"},
+              {"Green": "5x multiplier on zero"},
+              {"Limit": "Maximum bet of 250 coin"}
+            ],
+            "Game Rules": [
+              {"Time Limit": "15 seconds to select color"},
+              {"Cooldown": "Required waiting period between games"},
+              {"Balance Check": "Cannot bet more than owned coin"},
+              {"Single Game": "Cannot play multiple games simultaneously"}
+            ],
+            "Multipliers": [
+              {"1.5x": "Red (odd numbers)"},
+              {"2x": "Black (even numbers)"},
+              {"5x": "Green (zero)"}
+            ],
+            "Response Format": [
+              {"Visual": "Animated result with color indication"},
+              {"Results": "Shows win/loss amount and new balance"},
+              {"Public": "Game results visible to all users"},
+              {"Timeout": "Notification if color not selected in time"}
+            ]
+          }
+        },
+        {
+          "name": "Sell",
+          "command": "/sell",
+          "description": "Sell in-game items for coin currency.",
+          "tags": ["economy", "items", "trading", "coin"],
+          "tutorial": {
+            "steps": [
+              "Use /sell to open the selling menu",
+              "Start a new sale by selecting 'Sell Items'",
+              "Place a fence kit at your desired sale location",
+              "Drop and destroy the items you want to sell",
+              "Wait for system to detect items or confirm manually",
+              "Receive coin payment upon confirmation"
+            ],
+            "notes": "Cannot start sales within 1 hour of server restart. Must wait for items to despawn. Only specific items can be sold."
+          },
+          "categories": {
+            "Menu Options": [
+              {"Sell Items": "Start a new sale order"},
+              {"Confirm Sale": "Verify detected items and complete sale"},
+              {"Cancel Sale": "Cancel current sale request"},
+              {"View Items": "See list of sellable items and prices"}
+            ],
+            "Sale Requirements": [
+              {"Timing": "Cannot sell within 1 hour of restart"},
+              {"Location": "Must place fence kit as marker"},
+              {"Items": "Must drop and destroy sellable items"},
+              {"Verification": "System must detect despawned items"}
+            ],
+            "Sale Process": [
+              {"Detection": "System scans for despawned items"},
+              {"Confirmation": "Review and confirm detected items"},
+              {"Payment": "Automatic coin transfer on completion"},
+              {"Logging": "All sales recorded with unique ID"}
+            ],
+            "Restrictions": [
+              {"Active Sales": "Cannot have multiple active sales"},
+              {"Shop Purchases": "Cannot sell while shop purchase pending"},
+              {"Restart Timer": "Time restriction near server restarts"},
+              {"Item Types": "Only specific items can be sold"}
+            ]
+          }
+        },
+        {
+          "name": "Settings",
+          "command": "/settings",
+          "description": "Manage your personal server settings and preferences.",
+          "tags": ["settings", "personal", "configuration", "preferences"],
+          "tutorial": {
+            "steps": [
+              "Use /settings to open settings menu",
+              "Select setting to modify from dropdown",
+              "Follow prompts to change selected setting",
+              "Confirm changes when prompted"
+            ],
+            "notes": "Settings menu expires after 120 seconds. Some options may be restricted based on your role."
+          },
+          "categories": {
+            "Player Settings": [
+              {"Main Player": "Select primary linked player"},
+              {"Flag Notification Radius": "Set notification distance (role-based limits)"},
+              {"Reboot Alerts": "Toggle 5-minute restart notifications"}
+            ],
+            "Map Settings": [
+              {"iZurvive Marker Movement": "Allow/deny marker repositioning"},
+              {"iZurvive Marker Deletion": "Allow/deny marker removal"},
+              {"Saved Locations": "Manage personal location bookmarks"}
+            ],
+            "Game Preferences": [
+              {"PVP Opt-Out": "Toggle PVP participation (time-based)"},
+              {"Location Management": "Save and delete personal waypoints"},
+              {"Notification Controls": "Customize alert settings"}
+            ],
+            "Setting Types": [
+              {"Toggle Options": "Enable/disable features"},
+              {"Numeric Values": "Set distances and radiuses"},
+              {"Selection Lists": "Choose from available options"},
+              {"Location Data": "Manage saved coordinates"}
+            ],
+            "Limitations": [
+              {"Flag Radius": "Maximum based on role level"},
+              {"Main Player": "Must have multiple linked accounts"},
+              {"Saved Locations": "Personal waypoint management"},
+              {"PVP Opt-Out": "Requires minimum playtime"}
+            ]
+          }
+        },
+        {
+          "name": "Shop",
+          "command": "/shop",
+          "description": "Purchase and manage in-game items using coin currency.",
+          "tags": ["economy", "items", "shopping", "spawning"],
+          "tutorial": {
+            "steps": [
+              "Use /shop to open the shopping menu",
+              "Browse categories or item kits",
+              "Add items to cart with desired quantities",
+              "Choose spawn location (fence kit or saved location)",
+              "Complete purchase and wait for next restart"
+            ],
+            "notes": "Items spawn after server restart. Must be collected once to become protected by flags. Maximum 50 items per type."
+          },
+          "categories": {
+            "Shopping Features": [
+              {"Categories": "Browse items by type"},
+              {"Item Kits": "Pre-made item collections"},
+              {"Cart Management": "Add, remove, or adjust quantities"},
+              {"Gift System": "Send items to other players"}
+            ],
+            "Spawn Options": [
+              {"New Location": "Place fence kit for new coordinates"},
+              {"Saved Locations": "Use previously saved coordinates"},
+              {"Location Saving": "Save coordinates for future use"}
+            ],
+            "Purchase Process": [
+              {"Cart Review": "Check items and total cost"},
+              {"Location Selection": "Choose spawn coordinates"},
+              {"Confirmation": "Verify purchase details"},
+              {"Spawn Timing": "Items appear after restart"}
+            ],
+            "Restrictions": [
+              {"Quantity": "Maximum 50 of each item"},
+              {"Timing": "Cannot purchase near restart"},
+              {"Balance": "Must have sufficient coin"},
+              {"Channel": "Only usable in commands channel"}
+            ]
+          }
+        },
+        {
+          "name": "Slots",
+          "command": "/slots <bet>",
+          "description": "Play slots with your coin currency.",
+          "tags": ["gambling", "slots", "games", "coin"],
+          "tutorial": {
+            "steps": [
+              "Use /slots followed by your bet amount",
+              "Watch the slot machine spin",
+              "Match symbols to win multipliers",
+              "Collect winnings or try again after cooldown"
+            ],
+            "notes": "Maximum bet is 250 coin. Has cooldown between plays. Must be used in #workGamble channel."
+          },
+          "categories": {
+            "Betting Rules": [
+              {"Minimum": "1 coin per play"},
+              {"Maximum": "250 coin per play"},
+              {"Balance": "Cannot bet more than owned coin"},
+              {"Cooldown": "Time required between plays"}
+            ],
+            "Winning Combinations": [
+              {"Three Matching": "7x multiplier"},
+              {"Two Matching": "2x multiplier"},
+              {"No Matches": "Lose bet amount"}
+            ],
+            "Slot Symbols": [
+              {"Fruits": "🍇 🍉 🍊 🍎 🍑 🍓 🍒"},
+              {"Random": "Symbols chosen randomly"},
+              {"Display": "Shows three symbols per spin"},
+              {"Matches": "Check for matching symbols"}
+            ],
+            "Game Features": [
+              {"Visual": "Animated result with emojis"},
+              {"Results": "Shows win/loss amount and new balance"},
+              {"Public": "Game results visible to all users"},
+              {"Tracking": "Maintains play history and cooldowns"}
+            ]
+          }
+        },
+        {
+          "name": "Spawn",
+          "command": "/spawn",
+          "description": "Create and manage personal object spawns.",
+          "tags": ["spawning", "objects", "locations", "management"],
+          "tutorial": {
+            "steps": [
+              "Use /spawn to open spawn menu",
+              "Choose between new spawn or modify existing",
+              "Select object and location for new spawns",
+              "Manage existing spawns through modification options"
+            ],
+            "notes": "Spawns must be 25 meters from other objects. Locations verified through status channel. 30-day duration with extension options."
+          },
+          "categories": {
+            "Spawn Options": [
+              {"New Spawn": "Create new object spawn"},
+              {"Modify Spawn": "Adjust existing spawns"},
+              {"Object Types": "Various spawnable items"},
+              {"Location Setting": "Coordinate-based placement"}
+            ],
+            "Modification Features": [
+              {"Change Location": "Update spawn coordinates"},
+              {"Reset": "Restore lost/stolen vehicles"},
+              {"Activate/Deactivate": "Toggle spawn status"},
+              {"Extend": "Increase spawn duration"}
+            ],
+            "Location Requirements": [
+              {"Distance": "25m from other objects"},
+              {"Coordinates": "Uses X, Z coordinates"},
+              {"Rotation": "Optional 0-360° rotation"},
+              {"Verification": "Status channel confirmation"}
+            ],
+            "Management": [
+              {"Duration": "30-day base duration"},
+              {"Extensions": "Variable extension periods"},
+              {"Activation": "Toggle spawn visibility"},
+              {"Cost": "Variable based on object type"}
+            ]
+          }
+        },
+        {
+          "name": "Stats",
+          "command": "/stats",
+          "description": "View detailed player and Discord statistics.",
+          "tags": ["statistics", "players", "pvp", "information"],
+          "tutorial": {
+            "steps": [
+              "Use /stats followed by a subcommand",
+              "Choose between me/discord/player/pvprank",
+              "Provide required user or player name",
+              "View detailed statistics output"
+            ],
+            "notes": "PVP rank card is generated with custom background and rank imagery. Stats are updated in real-time."
+          },
+          "categories": {
+            "Subcommands": [
+              {"me": "View your personal Discord stats"},
+              {"discord": "View another user's Discord stats"},
+              {"player": "View detailed player statistics"},
+              {"pvprank": "View PVP rank card with visual display"}
+            ],
+            "Player Statistics": [
+              {"Time Tracking": "Playtime, last seen, life spans"},
+              {"Distance": "Current, last life, total meters"},
+              {"Building": "Objects built and dismantled"},
+              {"Survival": "PvE encounters and damage"}
+            ],
+            "PVP Statistics": [
+              {"Combat": "Kills, deaths, KDR, streaks"},
+              {"Damage": "Dealt and taken by weapon type"},
+              {"Knockouts": "Given and received statistics"},
+              {"Rankings": "Progressive rank system based on kills"}
+            ],
+            "Rank System": [
+              {"Recruit": "0-4 kills"},
+              {"Soldier": "5-19 kills"},
+              {"Mercenary": "20-49 kills"},
+              {"Assassin": "50-74 kills"},
+              {"Deadly": "75-99 kills"},
+              {"Serial Killer": "100+ kills"}
+            ]
+          }
+        },
+        {
+          "name": "Suggest",
+          "command": "/suggest",
+          "description": "Create and manage server suggestions.",
+          "tags": ["suggestions", "voting", "feedback", "management"],
+          "tutorial": {
+            "steps": [
+              "Use /suggest new to create suggestion",
+              "Enter suggestion text (3000 char max)",
+              "Confirm submission for voting",
+              "Monitor votes and responses"
+            ],
+            "notes": "Use 'newline' for line breaks. Default reactions include 👍 and 👎. Additional reactions can be added after posting."
+          },
+          "categories": {
+            "Subcommands": [
+              {"new": "Create new suggestion"},
+              {"delete": "Remove your suggestion"},
+              {"reset": "Reset suggestion votes (Admin)"},
+              {"accept": "Approve suggestion (Admin)"},
+              {"deny": "Reject suggestion (Admin)"}
+            ],
+            "Suggestion Features": [
+              {"Voting": "Automatic reaction setup"},
+              {"Notifications": "Announcement in suggestions channel"},
+              {"Tracking": "Unique suggestion IDs"},
+              {"Formatting": "Embedded message display"}
+            ],
+            "Management Options": [
+              {"Status Updates": "Waiting/Accepted/Denied states"},
+              {"Staff Responses": "Reason for acceptance/denial"},
+              {"Vote Reset": "Clear and restart voting"},
+              {"Ownership": "Creator-only deletion"}
+            ],
+            "Status Messages": [
+              {"Waiting": "📊 Awaiting community feedback"},
+              {"Accepted": "✅ Suggestion approved for implementation"},
+              {"Denied": "❌ Suggestion not accepted"},
+              {"Response": "Staff feedback included"}
+            ]
+          }
+        },    
+        {
+          "name": "Wire",
+          "command": "/wire <amount> <player>",
+          "description": "Transfer coin currency to other players.",
+          "tags": ["economy", "transfer", "coin", "players"],
+          "tutorial": {
+            "steps": [
+              "Use /wire command",
+              "Enter amount to send",
+              "@mention recipient",
+              "Confirm transaction"
+            ],
+            "notes": "Cannot wire to bots, banned players, or yourself. Recipients must have linked accounts."
+          },
+          "categories": {
+            "Required Options": [
+              {"amount": "Coin quantity to transfer"},
+              {"player": "@mention of recipient"}
+            ],
+            "Transfer Rules": [
+              {"Minimum": "Must send more than 0 coin"},
+              {"Maximum": "Limited by sender's balance"},
+              {"Self-Transfer": "Cannot wire to yourself"},
+              {"Recipient": "Must have linked account"}
+            ],
+            "Restrictions": [
+              {"Banned Players": "Cannot receive transfers"},
+              {"Bots": "Cannot receive transfers"},
+              {"Balance": "Must have sufficient funds"},
+              {"Recipients": "Must be valid Discord users"}
+            ],
+            "Transaction Details": [
+              {"Verification": "Checks recipient eligibility"},
+              {"Balance Check": "Validates sender funds"},
+              {"Processing": "Immediate transfer"},
+              {"Logging": "Records all transactions"}
+            ]
+          }
+        },
+        {
+          "name": "Work",
+          "command": "/work",
+          "description": "Earn coin through random work activities.",
+          "tags": ["economy", "coin", "earning", "activities"],
+          "tutorial": {
+            "steps": [
+              "Use /work command",
+              "Receive random work scenario",
+              "Earn random coin amount",
+              "Wait for cooldown before next work"
+            ],
+            "notes": "Cooldown between work sessions. Coin payout varies between 70% and 130% of base amount."
+          },
+          "categories": {
+            "Work Scenarios": [
+              {"Physical Labor": "Digging, farming, construction"},
+              {"Combat": "Zombie elimination, troll hunting"},
+              {"Assistance": "Helping newcomers, deliveries"},
+              {"Animal Handling": "Trapping, hunting, farming"},
+              {"Security": "Escort missions, protection"}
+            ],
+            "Reward System": [
+              {"Base Payout": "Standard coin amount"},
+              {"Variation": "70%-130% of base amount"},
+              {"Random": "Different scenario each time"},
+              {"Instant": "Immediate coin reward"}
+            ],
+            "Cooldown": [
+              {"Timer": "Required playtime between work"},
+              {"Reset": "Cooldown starts after each work"},
+              {"Override": "Developer role bypass"},
+              {"Display": "Shows remaining time"}
+            ],
+            "Features": [
+              {"Scenarios": "18+ different work activities"},
+              {"Visual": "Embedded message display"},
+              {"Public": "Results visible to all users"},
+              {"Balance": "Automatic coin update"}
+            ]
+          }
+        }        
+      ]
+    },
+    "helper": {
+      "name": "Helper",
+      "commands": [
+        {
+          "name": "Announce",
+          "command": "/announce <message>",
+          "description": "Tag online players with an announcement.",
+          "tags": ["communication", "notification", "players"],
+          "tutorial": {
+            "steps": [
+              "Type /announce followed by your message",
+              "Enter the announcement message you want to send",
+              "Submit the command to send the announcement",
+              "The message will be sent to all online players"
+            ],
+            "notes": "This command will tag all online players who have linked their Discord accounts"
+          }
+        },
+        {
+          "name": "Gate Codes",
+          "command": "/gatecodes",
+          "description": "View and manage gate codes for secure locations.",
+          "tags": ["security", "management", "gates", "access"],
+          "tutorial": {
+            "steps": [
+              "Use /gatecodes to view all current gate codes",
+              "Select from available options: Add, Change, or Remove",
+              "Follow the prompts to manage gate codes",
+              "Confirm your changes when prompted"
+            ],
+            "notes": "Requires Helper role. All codes must be 4 digits."
+          },
+          "categories": {
+            "Main Options": [
+              {"Add": "Create a new gate entry with code"},
+              {"Change": "Modify existing gate codes"},
+              {"Remove": "Delete gate entries"},
+              {"View": "See all current gate codes"}
+            ],
+            "Gate Management": [
+              {"Name Limit": "Gate names limited to 100 characters"},
+              {"Code Format": "Must be exactly 4 digits"},
+              {"Uniqueness": "Gate names must be unique"},
+              {"Validation": "Codes are verified for correct format"}
+            ],
+            "Interactive Menu": [
+              {"Navigation": "Use dropdown menus to select options"},
+              {"Confirmation": "Verify changes before applying"},
+              {"Cancellation": "Can cancel at any step"},
+              {"Status Updates": "Provides feedback for all actions"}
+            ],
+            "Response Format": [
+              {"Display": "Shows codes in embedded message"},
+              {"Color Coding": "Uses colors to indicate status"},
+              {"Visibility": "All responses are ephemeral"},
+              {"Organization": "Lists gates with IDs and codes"}
+            ]
+          }
+        }
+      ]
+    },
+    "staff": {
+      "name": "Staff",
+      "commands": [
+        {
+          "name": "Bounty",
+          "command": "/bounty",
+          "description": "Start or end bounty contracts on players.",
+          "tags": ["bounty", "contracts", "rewards", "gameplay"],
+          "tutorial": {
+            "steps": [
+              "Use /bounty followed by either 'new' or 'end' subcommand",
+              "For new bounty: Specify target player, objective, optional reward, and time limit",
+              "For ending bounty: Specify target and optionally the player who claimed it",
+              "Confirm the action when prompted",
+              "Bounty will be announced in the bounty log channel"
+            ],
+            "notes": "Maximum reward is 2000 coins. Time limit is optional. Bounties can be cancelled if no one claims them."
+          },
+          "categories": {
+            "Subcommands": [
+              {"new": "Place a new bounty on a player"},
+              {"end": "End or claim an existing bounty"}
+            ],
+            "Bounty Objectives": [
+              {"Kill": "Eliminate the target player"},
+              {"Shoot": "Hit the target with a ranged weapon"},
+              {"Knock Out": "Render the target unconscious"},
+              {"Melee": "Hit the target with a melee weapon"},
+              {"Trap": "Successfully trap the target"}
+            ],
+            "Bounty Options": [
+              {"Reward": "0-2000 coins (optional)"},
+              {"Time Limit": "Set in minutes (optional)"},
+              {"Claiming": "Staff can assign bounty completion to specific players"}
+            ]
+          }
+        },
+        {
+          "name": "Mute",
+          "command": "/mute",
+          "description": "Discord mute commands for managing user communication.",
+          "tags": ["moderation", "admin", "punishment", "communication"],
+          "tutorial": {
+            "steps": [
+              "Use /mute followed by a subcommand (add/remove/info)",
+              "For muting: /mute add @user reason [minutes]",
+              "For unmuting: /mute remove @user",
+              "For mute info: /mute info @user"
+            ],
+            "notes": "Staff cannot mute users with equal or higher permissions. Permanent mutes can be set with 0 minutes."
+          },
+          "categories": {
+            "Subcommands": [
+              {"add": "Mute a user (requires target, reason, optional duration)"},
+              {"remove": "Remove a user's mute"},
+              {"info": "View details about a user's mute"}
+            ],
+            "Mute Options": [
+              {"Duration": "Specify minutes (0 or omit for permanent)"},
+              {"Reason": "Required explanation for mute"},
+              {"Visibility": "Mute actions are logged in admin channel"}
+            ],
+            "Permission Rules": [
+              {"Staff Hierarchy": "Cannot mute users of equal/higher rank"},
+              {"Self Actions": "Cannot mute/unmute yourself"},
+              {"Unmute Rights": "Cannot remove mutes placed by higher ranks"}
+            ],
+            "Information Display": [
+              {"Mute Details": "Shows mute time, duration, and reason"},
+              {"Time Tracking": "Displays remaining time for temporary mutes"},
+              {"Muter Info": "Shows who applied the mute"},
+              {"Logging": "All actions logged in admin channel"}
+            ]
+          }
+        },
+        {
+          "name": "Server",
+          "command": "/server",
+          "description": "Manage gameserver settings and configurations.",
+          "tags": ["admin", "settings", "gameserver", "management"],
+          "tutorial": {
+            "steps": [
+              "Use /server followed by a subcommand",
+              "Select from available options or settings",
+              "Follow prompts to make changes",
+              "Confirm changes when prompted"
+            ],
+            "notes": "Most settings require Staff or higher permissions. Some settings restricted to Discord Admin only."
+          },
+          "categories": {
+            "Subcommands": [
+              {"draw-player-base": "View base outline on Staff map (requires coordinates)"},
+              {"restart": "Schedule server restart with optional delay"},
+              {"objects": "View built objects in an area"},
+              {"objects-player": "View all objects built by specific player"},
+              {"settings": "View/modify server configuration"},
+              {"storage": "View/modify storage quantities"}
+            ],
+            "Settings Management": [
+              {"Base Building": "Configure building placement rules"},
+              {"Server Configuration": "Modify core server settings"},
+              {"Game Rules": "Adjust gameplay mechanics"},
+              {"Storage": "Manage container capacities"}
+            ],
+            "Permission Levels": [
+              {"Staff": "Basic server management"},
+              {"Moderator": "Advanced configuration access"},
+              {"Discord Admin": "Full server control"}
+            ],
+            "Settings Categories": [
+              {"Game Settings": "Core gameplay configurations"},
+              {"Player Settings": "Character-related options"},
+              {"World Settings": "Environment configurations"},
+              {"System Settings": "Technical server options"}
+            ]
+          }
+        },
+        {
+          "name": "Unlink",
+          "command": "/unlink <console> <name>",
+          "description": "Remove linked console account from Discord.",
+          "tags": ["account", "management", "staff", "linking"],
+          "tutorial": {
+            "steps": [
+              "Use /unlink command",
+              "Select console platform (Xbox/Playstation)",
+              "Enter player name to unlink",
+              "Confirm unlinking process"
+            ],
+            "notes": "Staff command only. Used to manage player-Discord account connections."
+          },
+          "categories": {
+            "Required Options": [
+              {"console": "Choose between Xbox or Playstation"},
+              {"name": "Player name to unlink"}
+            ],
+            "Platform Support": [
+              {"Xbox": "Unlink Xbox Gamertag"},
+              {"Playstation": "Unlink PSN Account"}
+            ],
+            "Usage Details": [
+              {"Permission": "Requires Staff role"},
+              {"Channels": "Can be used in any channel"},
+              {"Verification": "Confirms account existence"},
+              {"Response": "Notifies of unlink status"}
+            ],
+            "Management": [
+              {"Access Control": "Staff-only functionality"},
+              {"Account Validation": "Verifies account before unlinking"},
+              {"Platform Check": "Ensures correct platform selection"},
+              {"System Update": "Updates all relevant databases"}
+            ]
+          }
+        }
+      ]
+    },
+    "moderator": {
+      "name": "Moderator",
+      "commands": [
+        {
+          "name": "Restart Bot",
+          "command": "/admin restartbot",
+          "description": "Restarts the SpyZ bot.",
+          "tags": ["admin", "system", "maintenance"],
+          "tutorial": {
+            "steps": [
+              "Type /admin restartbot in any allowed channel",
+              "Click 'Yes' to confirm the restart",
+              "Wait for confirmation message that bot is restarting"
+            ],
+            "notes": "Make sure to notify users before restarting"
+          }
+        },
+        {
+          "name": "Bot Settings",
+          "command": "/admin settings",
+          "description": "Modify core bot and server settings.",
+          "tags": ["admin", "configuration", "settings", "server"],
+          "tutorial": {
+            "steps": [
+              "Type /admin settings in an allowed channel",
+              "Select the setting you want to change from the dropdown menu",
+              "Follow the prompts to modify the selected setting",
+              "Confirm your changes when prompted"
+            ],
+            "notes": "Some settings may require server restart to take effect"
+          },
+          "categories": {
+            "Player Management": [
+              {"Player Killers": "Configure PVP rules (Strict Auto Ban/Player Ban/Allowed)"},
+              {"Safe Zones": "Toggle safe zone functionality"},
+              {"Multi Logging": "Control multiple account access"},
+              {"Allow Unlinked Players": "Manage unlinked account access"},
+              {"Use Newcomer Zone": "Control new player restrictions"}
+            ],
+            "Server Management": [
+              {"Auto Restart Interval": "Set automatic restart timing"},
+              {"Restart Request Limit": "Configure restart request cooldown"},
+              {"Keep Gameserver Online": "Automatic server recovery"}
+            ],
+            "Notification Settings": [
+              {"Activity Notifications": "General activity alerts"},
+              {"Staff Activity Notifications": "Staff-related alerts"},
+              {"Flag Notifications": "Violation alert system"},
+              {"Staff Flag Notifications": "Staff violation alerts"}
+            ],
+            "Flag Configuration": [
+              {"Flag Radius": "Standard detection range"},
+              {"Supporter Flag Radius": "Supporter-specific range"},
+              {"Staff Flag Radius": "Staff detection range"}
+            ]
+          }
+        },
+        {
+          "name": "iZurvive Map Settings",
+          "command": "/admin settings-izurvive",
+          "description": "Configure iZurvive map integration settings.",
+          "tags": ["admin", "map", "izurvive", "configuration"],
+          "tutorial": {
+            "steps": [
+              "Type /admin settings-izurvive in an allowed channel",
+              "Select the map setting you want to modify",
+              "Choose enable/disable or configure the selected option",
+              "Save your changes"
+            ],
+            "notes": "Changes to map settings are applied immediately"
+          },
+          "categories": {
+            "Location Visibility": [
+              {"Show Locations on Map": "Player position visibility"},
+              {"Show Staff Locations on Map": "Staff position visibility"},
+              {"Show Locations on Staff Map": "Player visibility on staff map"},
+              {"Show Staff Locations on Staff Map": "Staff visibility on staff map"}
+            ],
+            "Zone Management": [
+              {"Allow Zone Changes": "Zone modification permissions"},
+              {"Show Zones to Public": "Zone visibility settings"}
+            ],
+            "Marker Controls": [
+              {"Allow Marker Movement": "Marker repositioning"},
+              {"Allow Marker Deletion": "Marker removal"},
+              {"Allow Marker Creation": "New marker placement"},
+              {"Allow Staff Marker Movement": "Staff marker controls"},
+              {"Allow Staff Marker Deletion": "Staff deletion rights"},
+              {"Allow Staff Marker Creation": "Staff creation permissions"}
+            ]
+          }
+        }
+      ]
+    },
+    "administrator": {
+      "name": "Administrator",
+      "commands": [
+        {
+          "name": "Shop Settings",
+          "command": "/shop-settings",
+          "description": "Manage shop items and currency configurations.",
+          "tags": ["admin", "shop", "economy", "configuration"],
+          "tutorial": {
+            "steps": [
+              "Use /shop-settings followed by a subcommand",
+              "Choose between item or currency management",
+              "Enter required information for new entries",
+              "Confirm changes to update price lists"
+            ],
+            "notes": "Administrator role required. Changes immediately update shop and currency lists in designated channels."
+          },
+          "categories": {
+            "Item Management": [
+              {"new-item": "Add or update shop items"},
+              {"delete-item": "Remove items from shop"},
+              {"Categories": "Ammunition, Attachments, Base Building, etc."},
+              {"Price Settings": "Set buy/sell prices for items"}
+            ],
+            "Currency Management": [
+              {"new-currency": "Add or update currency items"},
+              {"delete-currency": "Remove currency items"},
+              {"Categories": "Books, Contraband, Pelts"},
+              {"Trade Values": "Set trader buy/sell prices"}
+            ],
+            "List Updates": [
+              {"Price List": "Automatically updates shop prices"},
+              {"Currency List": "Updates trader currency values"},
+              {"Public Display": "Shows in designated channels"},
+              {"Format": "Organized by categories"}
+            ],
+            "Restrictions": [
+              {"Permission": "Requires Administrator role"},
+              {"Channel": "Must use shop channel"},
+              {"Name Length": "40 characters maximum"},
+              {"Categories": "Predefined item types"}
+            ]
+          }
+        },
+        {
+          "name": "XML",
+          "command": "/xml",
+          "description": "Edit gameserver XML configuration files.",
+          "tags": ["admin", "configuration", "types", "server"],
+          "tutorial": {
+            "steps": [
+              "Use /xml types to access type configurations",
+              "Select category to modify",
+              "Choose specific item type",
+              "Edit values or flags",
+              "Save changes to Nitrado server"
+            ],
+            "notes": "Administrator role required. Changes require server restart to take effect. All modifications are logged."
+          },
+          "categories": {
+            "Type Management": [
+              {"View Types": "Browse categories and items"},
+              {"Edit Values": "Modify item properties"},
+              {"Save Changes": "Upload to Nitrado server"},
+              {"Reload Types": "Refresh from active server"}
+            ],
+            "Editable Properties": [
+              {"Quantities": "nominal, min, quantmin, quantmax"},
+              {"Timing": "lifetime, restock"},
+              {"Flags": "cargo, hoarder, map, player counts"},
+              {"Categories": "item classifications and tags"}
+            ],
+            "File Operations": [
+              {"Category Selection": "Browse type categories"},
+              {"Value Validation": "Numerical range checking"},
+              {"Batch Saving": "Multiple file updates"},
+              {"FTP Integration": "Direct server upload"}
+            ],
+            "Safety Features": [
+              {"Confirmation": "Required for all changes"},
+              {"Logging": "Admin feed notifications"},
+              {"Validation": "Input range checking"},
+              {"Backups": "Original file preservation"}
+            ]
+          }
+        }
+        
+      ]
+    },
+    "discordadmin": {
+      "name": "DiscordAdmin",
+      "commands": [
+        {
+          "name": "Grant",
+          "command": "/grant <amount> [player] [role]",
+          "description": "Grant or remove coin from players or roles.",
+          "tags": ["economy", "admin", "currency", "management"],
+          "tutorial": {
+            "steps": [
+              "Use /grant followed by the amount of coin",
+              "Either @mention a player OR @mention a role",
+              "Positive numbers add coin, negative numbers remove coin",
+              "Confirm the transaction in the response"
+            ],
+            "notes": "Requires DiscordAdmin role. Cannot grant coin to banned players or bots. Players must have linked accounts."
+          },
+          "categories": {
+            "Options": [
+              {"amount": "Amount of coin to grant (required)"},
+              {"player": "@Mention a specific player (optional)"},
+              {"role": "@Mention a role to affect all members (optional)"}
+            ],
+            "Requirements": [
+              {"Permission": "Must have DiscordAdmin role"},
+              {"Channel": "Can only be used in #commands channel"},
+              {"Target": "Players must have linked game accounts"},
+              {"Restrictions": "Cannot target banned players or bots"}
+            ],
+            "Role Granting": [
+              {"Execution": "Processes all members of mentioned role"},
+              {"Validation": "Skips banned members automatically"},
+              {"Verification": "Only affects members with valid accounts"},
+              {"Logging": "Records transaction for entire role"}
+            ],
+            "Transaction Details": [
+              {"Logging": "All transactions are logged in coin transactions channel"},
+              {"Visibility": "Command response is visible to all"},
+              {"Recording": "Maintains transaction history"},
+              {"Notification": "Shows success/failure messages"}
+            ]
+          }
+        },
+        {
+          "name": "Server Dev",
+          "command": "/serverdev",
+          "description": "Advanced server developer commands for system management.",
+          "tags": ["developer", "admin", "system", "maintenance"],
+          "tutorial": {
+            "steps": [
+              "Use /serverdev followed by a subcommand",
+              "Confirm action in warning prompt",
+              "Wait for completion message",
+              "Check results after completion"
+            ],
+            "notes": "These commands are high-risk and irreversible. Requires Discord Admin role. Use with extreme caution."
+          },
+          "categories": {
+            "Wipe Commands": [
+              {"wipe-gameserver": "Complete server wipe (irreversible)"},
+              {"wipe-database": "Clear player objects and events"},
+              {"deactivate-spawns": "Disable all personal player spawns"}
+            ],
+            "Purge Management": [
+              {"purge-start": "Initiate server purge mode"},
+              {"purge-end": "Terminate server purge mode"}
+            ],
+            "Purge Settings": [
+              {"PVP": "Toggles between allowed/player-ban"},
+              {"Safety": "Controls AutoBan and Safe Zones"},
+              {"Visibility": "Manages location sharing"},
+              {"Damage": "Controls base/container damage"}
+            ],
+            "Safety Features": [
+              {"Confirmation": "Required for all critical actions"},
+              {"Logging": "Records all command usage"},
+              {"Permissions": "Strict role requirements"},
+              {"Reversibility": "Some actions cannot be undone"}
+            ]
+          }
+        }
+      ]
+    },
+    "developer": {
+      "name": "Developer",
+      "commands": [
+        {
+          "name": "Developer",
+          "command": "/developer",
+          "description": "Developer commands for system maintenance.",
+          "tags": ["developer", "admin", "system", "maintenance"],
+          "tutorial": {
+            "steps": [
+              "Use /developer followed by a subcommand",
+              "Select the desired maintenance operation",
+              "Wait for confirmation message",
+              "Check results in the response"
+            ],
+            "notes": "This command requires Developer role and should be used with caution."
+          },
+          "categories": {
+            "Subcommands": [
+              {"deploycommands": "Deploy new command data to update Discord slash commands"},
+              {"cleanmembers": "Remove inactive members from the Discord server"}
+            ],
+            "Usage": [
+              {"Permission": "Requires Developer role"},
+              {"Channel Restriction": "Can be used in any channel"},
+              {"Response": "All responses are ephemeral (only visible to command user)"}
+            ],
+            "Operation Details": [
+              {"Deploy Commands": "Updates all slash command registrations with Discord API"},
+              {"Clean Members": "Automatically removes inactive server members"}
+            ],
+            "Response Format": [
+              {"Deploy": "Shows deployment status and confirmation"},
+              {"Clean": "Displays number of members removed"},
+              {"Progress": "Shows operation progress messages"},
+              {"Errors": "Indicates any issues during execution"}
+            ]
+          }
+        }        
+      ]
+    }
+  },
+  "quickTips": [
+    {"Permission Check": "Ensure you have the required role before attempting to use any command."},
+    {"Channel Restriction": "Commands can only be used in designated command channels."},
+    {"Confirmation": "Many settings will require confirmation before changes are applied."},
+    {"Timeout Warning": "Settings menus will expire after 120 seconds of inactivity."}
+  ]
+}

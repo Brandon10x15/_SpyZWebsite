@@ -1,0 +1,4 @@
+2025-02-06 18:07:07 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\node_modules\node-windows\lib\wrapper.js --file C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\start-prod.js --scriptoptions= --log "SpyZFeed wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-02-06 18:07:07 - Started 15448
+2025-02-06 18:15:18 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\node_modules\node-windows\lib\wrapper.js --file C:\Users\Brand\Documents\_SpyZ-Feed\_SpyZWebsite\start-prod.js --scriptoptions= --log "SpyZFeed wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-02-06 18:15:19 - Started 20524

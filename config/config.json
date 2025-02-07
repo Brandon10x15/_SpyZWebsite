@@ -1,0 +1,110 @@
+{
+    "discord": {
+        "clientId": "1075191421709058129",
+        "redirectUri": {
+            "development": "http://localhost",
+            "production": "https://spyzfeed.xyz"
+        }
+    },
+    "app": {
+        "name": "SpyZ Feed",
+        "copyright": "© 2025 SpyZ. All rights reserved.",
+        "version": "1.0.0",
+        "description": "SpyZ Bot Documentation and Commands"
+    },
+    "theme": {
+        "defaultDark": false,
+        "colors": {
+            "primary": "#3498db",
+            "primaryDark": "#2980b9",
+            "success": "#2ecc71",
+            "warning": "#f1c40f",
+            "danger": "#e74c3c",
+            "info": "#3498db"
+        }
+    },
+    "navigation": {
+        "links": [
+            {
+                "name": "Home",
+                "url": "index.html",
+                "icon": "🏠"
+            },
+            {
+                "name": "Commands",
+                "url": "commands.html",
+                "icon": "📝"
+            }
+        ]
+    },
+    "footer": {
+        "sections": [
+            {
+                "title": "Quick Links",
+                "links": [
+                    {
+                        "name": "Home",
+                        "url": "index.html"
+                    },
+                    {
+                        "name": "Commands",
+                        "url": "commands.html"
+                    }
+                ]
+            },
+            {
+                "title": "Support",
+                "links": [
+                    {
+                        "name": "Discord Server",
+                        "url": "https://discord.gg/your-server",
+                        "external": true
+                    }
+                ]
+            }
+        ],
+        "social": {
+            "discord": "https://discord.gg/your-server"
+        }
+    },
+    "security": {
+        "allowedDomains": [
+            "localhost",
+            "spyzfeed.xyz"
+        ],
+        "corsEnabled": true,
+        "rateLimit": {
+            "windowMs": 900000,
+            "max": 100
+        }
+    },
+    "features": {
+        "search": {
+            "enabled": true,
+            "minLength": 2,
+            "debounceMs": 300
+        },
+        "authentication": {
+            "required": false,
+            "providers": ["discord"]
+        },
+        "notifications": {
+            "enabled": true,
+            "duration": 5000,
+            "position": "top-right"
+        }
+    },
+    "meta": {
+        "title": "SpyZ Feed - Bot Documentation",
+        "description": "Complete documentation and command reference for SpyZ Bot",
+        "keywords": [
+            "SpyZ",
+            "bot",
+            "commands",
+            "documentation",
+            "discord"
+        ],
+        "author": "SpyZ Development Team",
+        "ogImage": "https://spyzfeed.xyz/images/og-image.png"
+    }
+}

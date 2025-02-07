@@ -1,0 +1,8 @@
+log.log
+err.log
+out.log
+_DayZSpyErrors.log
+node_modules/
+.idea/
+.vs/
+.vscode/
