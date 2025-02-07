@@ -27,42 +27,50 @@ export async function loadComponents() {
             if (!config) {
                 config = await loadConfig();
             }
-
             const navbar = `
-                <nav class="nav-bar">
-                    <div class="nav-container">
-                        <a href="index.html" class="nav-logo">${config.app.name}</a>
-                        <div class="nav-links">
-                            <a href="index.html" class="nav-link">Home</a>
-                            <a href="commands.html" class="nav-link">Commands</a>
-                            <button 
-                                id="themeToggle" 
-                                class="theme-toggle-btn" 
-                                aria-label="Toggle theme"
-                                type="button"
-                            >🌙</button>
-                            <div class="auth-section">
-                                <button id="loginButton" class="discord-login">
-                                    <img 
-                                        src="${window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1') 
-                                            ? '/images/discord-logo-white.png' 
-                                            : 'https://spyzfeed.xyz/images/discord-logo-white.png'}" 
-                                        alt="Discord Logo" 
-                                        class="discord-logo"
-                                        id="discordLogo"
-                                    >
-                                    Login with Discord
-                                </button>
-                                <div id="userInfo" class="user-info" style="display: none;">
-                                    <img id="userAvatar" class="user-avatar" src="" alt="User Avatar">
-                                    <span id="userName" class="user-name"></span>
-                                    <button id="logoutButton" class="logout-button">Logout</button>
-                                </div>
-                            </div>
-                        </div>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-logo-container">
+                <a href="index.html" class="nav-logo">
+                    <img src="images/logo.png" alt="SpyZ Feed Logo" class="nav-logo-img">
+                </a>
+                <span class="nav-title">${config.app.name}</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="commands.html" class="nav-link">Commands</a>
+                <button 
+                    id="themeToggle" 
+                    class="theme-toggle-btn" 
+                    aria-label="Toggle theme"
+                    type="button"
+                >🌙</button>
+                <div class="auth-section">
+                    <button id="loginButton" class="discord-login">
+                        <img 
+                            src="${window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1') 
+                                ? '/images/discord-logo-white.png' 
+                                : 'https://spyzfeed.xyz/images/discord-logo-white.png'}" 
+                            alt="Discord Logo" 
+                            class="discord-logo"
+                            id="discordLogo"
+                        >
+                        Login with Discord
+                    </button>
+                    <div id="userInfo" class="user-info" style="display: none;">
+                        <img id="userAvatar" class="user-avatar" src="" alt="User Avatar">
+                        <span id="userName" class="user-name"></span>
+                        <button id="logoutButton" class="logout-button">Logout</button>
                     </div>
-                </nav>
-            `;
+                </div>
+            </div>
+        </div>
+    </nav>
+`;
+
+
+
+        
             // Create footer
             const footer = `
                 <footer>
@@ -165,33 +173,37 @@ export function showError(container, error) {
 
 // Create notification system
 export function showNotification(message, type = 'info') {
+    // Remove any existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+      existingNotification.remove();
+    }
+  
+    // Create notification container if it doesn't exist
+    let notificationContainer = document.querySelector('.notification-container');
+    if (!notificationContainer) {
+      notificationContainer = document.createElement('div');
+      notificationContainer.className = 'notification-container';
+      document.body.appendChild(notificationContainer);
+    }
+  
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.innerHTML = `
-        <p>${message}</p>
-        <button class="notification-close">&times;</button>
+      <p>${message}</p>
+      <button class="notification-close">&times;</button>
     `;
-
+  
     // Add close button functionality
     notification.querySelector('.notification-close').addEventListener('click', () => {
-        notification.remove();
+      notification.remove();
     });
-
-    // Auto-remove after 5 seconds
-    setTimeout(() => {
-        notification.remove();
-    }, 5000);
-
-    // Add to notification container
-    let container = document.querySelector('.notification-container');
-    if (!container) {
-        container = document.createElement('div');
-        container.className = 'notification-container';
-        document.body.appendChild(container);
-    }
-    container.appendChild(notification);
-}
-
+  
+    // Add notification to container
+    notificationContainer.appendChild(notification);
+  }
+  
+  
 // Create modal dialog
 export function createModal(title, content) {
     const modal = document.createElement('div');

@@ -1,5 +1,8 @@
 /* Base styles */
 :root {
+  --bg-color-rgb: 255, 255, 255; /* Default background color */
+  --dark-bg-color-rgb: 50, 50, 50; /* Dark background color */
+  --light-bg-color-rgb: 200, 200, 200; /* Light background color */
   --primary-color: #3498db;
   --primary-dark: #2980b9;
   --text-color: #2c3e50;
@@ -13,12 +16,12 @@
 }
 
 .dark {
-  --primary-color: #3498db;
-  --primary-dark: #2980b9;
-  --text-color: #ecf0f1;
-  --bg-color: #1a1a1a;
-  --container-bg: #2c2c2c;
-  --border-color: #3d3d3d;
+  --primary-color: #2c3e50;
+  --primary-dark: #1a1d23;
+  --text-color: #ffffff;
+  --bg-color: #2c3e50;
+  --container-bg: #1a1d23;
+  --border-color: #2c3e50;
   --header-bg: #000000;
   --header-color: #ffffff;
   --shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -53,12 +56,24 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.nav-logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
 
 .nav-logo {
-  color: var(--header-color);
-  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.nav-logo-img {
+  width: 64px;
+  height: 64px;
+}
+
+.nav-title {
+  font-size: 18px;
   font-weight: bold;
-  text-decoration: none;
 }
 
 .nav-links {
@@ -213,6 +228,115 @@ body {
   padding: 1rem;
 }
 
+/* Notifications */
+.notification {
+  position: absolute;
+  bottom: -100px; /* Start the notification from the bottom */
+  right: 20px;
+  padding: 10px;
+  background-color: rgba(var(--bg-color-rgb), 0.8); /* Semi-transparent background */
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 300px;
+  transition: transform 0.5s, opacity 0.5s; /* Animate the notification sliding up and down */
+  animation: slide-up 0.5s forwards, slide-down 5s 0.5s forwards; /* Animate the notification sliding up from the bottom right and then sliding down after 5 seconds */
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+
+.notification.info {
+  background-color: rgba(135, 206, 235, 0.8); /* Info background color */
+  border-color: #3498db;
+}
+
+.notification.success {
+  background-color: rgba(34, 139, 34, 0.8); /* Success background color */
+  border-color: #2ecc71;
+}
+
+.notification.error {
+  background-color: rgba(178, 34, 34, 0.8); /* Error background color */
+  border-color: #e74c3c;
+}
+
+.dark .notification {
+  background-color: rgba(var(--dark-bg-color-rgb), 0.8); /* Semi-transparent background for dark theme */
+}
+
+.light .notification {
+  background-color: rgba(var(--light-bg-color-rgb), 0.8); /* Semi-transparent background for light theme */
+}
+
+.dark .notification.info {
+  background-color: rgba(135, 206, 235, 0.8); /* Info background color for dark theme */
+  border-color: #3498db;
+}
+
+.dark .notification.success {
+  background-color: rgba(34, 139, 34, 0.8); /* Success background color for dark theme */
+  border-color: #2ecc71;
+}
+
+.dark .notification.error {
+  background-color: rgba(178, 34, 34, 0.8); /* Error background color for dark theme */
+  border-color: #e74c3c;
+}
+
+.light .notification.info {
+  background-color: rgba(135, 206, 235, 0.8); /* Info background color for light theme */
+  border-color: #3498db;
+}
+
+.light .notification.success {
+  background-color: rgba(34, 139, 34, 0.8); /* Success background color for light theme */
+  border-color: #2ecc71;
+}
+
+.light .notification.error {
+  background-color: rgba(178, 34, 34, 0.8); /* Error background color for light theme */
+  border-color: #e74c3c;
+}
+
+.notification p {
+  color: var(--text-color);
+}
+
+.notification-close {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.notification-close:hover {
+  background-color: var(--primary-dark);
+}
+
+
 /* Search styles */
 .search-container {
   position: sticky;
@@ -299,6 +423,14 @@ body {
     padding: 0.5rem;
     background: rgba(52, 152, 219, 0.05);
     border-radius: 4px;
+}
+
+.role-requirement code {
+    color: var(--text-color); /* Add this line to set the text color */
+}
+
+.dark .role-requirement code {
+    color: #cccccc; /* Update the text color for dark mode */
 }
 
 /* Category section styles */

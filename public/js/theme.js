@@ -2,6 +2,18 @@
 export function initializeTheme() {
     console.log('Initializing theme...');
     
+    // Get the theme toggle button element
+    const themeToggleButton = document.getElementById('themeToggle');
+    
+    // Check if the element is present in the DOM
+    if (themeToggleButton) {
+        // Attach an event listener to the theme toggle button
+        themeToggleButton.addEventListener('click', () => {
+            // Dispatch the custom theme toggle event
+            document.dispatchEvent(new CustomEvent('themeToggle'));
+        });
+    }
+    
     // Listen for the custom theme toggle event
     document.addEventListener('themeToggle', handleThemeToggle);
     
@@ -13,6 +25,8 @@ export function initializeTheme() {
         updateThemeButton();
     }
 }
+
+import { showNotification } from '/js/components.js';
 function handleThemeToggle() {
     console.log('Theme toggle event received');
     const isDark = document.documentElement.classList.contains("dark");
@@ -20,9 +34,11 @@ function handleThemeToggle() {
     if (isDark) {
         document.documentElement.classList.remove("dark");
         document.body.classList.remove("dark");
+        showNotification('Theme changed to light.', 'success');
     } else {
         document.documentElement.classList.add("dark");
         document.body.classList.add("dark");
+        showNotification('Theme changed to dark.', 'success');
     }
     
     localStorage.setItem("darkTheme", !isDark);
@@ -35,23 +51,6 @@ function updateThemeButton() {
     const isDark = document.documentElement.classList.contains("dark");
     button.innerHTML = isDark ? '☀️' : '🌙';
     button.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
-}
-
-function setupThemeToggle(button) {
-    // Theme toggle functionality
-    button.addEventListener("click", function () {
-        document.documentElement.classList.toggle("dark");
-        document.body.classList.toggle("dark");
-        localStorage.setItem("darkTheme", document.documentElement.classList.contains("dark"));
-        updateToggleButton(button);
-    });
-
-    // Set initial state
-    if (localStorage.getItem("darkTheme") === "true") {
-        document.documentElement.classList.add("dark");
-        document.body.classList.add("dark");
-    }
-    updateToggleButton(button);
 }
 
 function updateToggleButton(button) {
@@ -94,21 +93,6 @@ function saveThemePreference() {
     localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-function watchSystemTheme() {
-    if (window.matchMedia) {
-        window.matchMedia('(prefers-color-scheme: dark)')
-            .addEventListener('change', e => {
-                if (!localStorage.getItem("theme")) {
-                    if (e.matches) {
-                        enableDarkMode();
-                    } else {
-                        enableLightMode();
-                    }
-                }
-            });
-    }
-}
-
 function enableDarkMode() {
     document.documentElement.classList.add("dark");
     document.body.classList.add("dark");
@@ -119,21 +103,6 @@ function enableLightMode() {
     document.documentElement.classList.remove("dark");
     document.body.classList.remove("dark");
     updateToggleButton(document.getElementById("themeToggle"));
-}
-
-// Theme transition management
-function manageTransitions(enable = true) {
-    const transitionStyles = document.createElement('style');
-    transitionStyles.innerHTML = `
-        * {
-            transition: ${enable ? 'all 0.3s ease' : 'none'} !important;
-        }
-    `;
-    
-    if (!enable) {
-        document.head.appendChild(transitionStyles);
-        setTimeout(() => transitionStyles.remove(), 100);
-    }
 }
 
 // Color scheme validation
@@ -227,8 +196,10 @@ function validateAndRepairTheme() {
 
 // Initialize theme system
 try {
-    validateAndRepairTheme();
-    initializeTheme();
+    document.addEventListener('DOMContentLoaded', () => {
+        validateAndRepairTheme();
+        initializeTheme();
+});
 } catch (error) {
     handleThemeError(error);
 }

@@ -46,18 +46,13 @@ app.use((req, res, next) => {
     const cspDirectives = [
         "default-src 'self'",
         "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://discord.com",
-        "style-src 'self' 'unsafe-inline'",
+        "style-src 'self' 'unsafe-inline'" ,
         "img-src 'self' data: https://cdn.discordapp.com https://assets-global.website-files.com",
         "connect-src 'self' https://discord.com"
     ].join('; ');
 
     // Security headers
     res.setHeader('Content-Security-Policy', cspDirectives);
-    res.setHeader('X-Frame-Options', 'DENY');
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
-    res.setHeader('X-XSS-Protection', '1; mode=block');
-    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
 
     next();
 });

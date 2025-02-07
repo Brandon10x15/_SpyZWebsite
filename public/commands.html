@@ -15,6 +15,7 @@
     </script>
 </head>
 <body>
+    <div class="notification-container"></div>
     <div class="container" id="mainContainer">
         <div class="loading">
             <p>Loading commands...</p>
@@ -40,12 +41,9 @@
             try {
                 await loadComponents();
                 await initializeAuth();
+                
                 initializeTheme();
                 
-                // Debug logging
-                document.addEventListener('themeToggle', () => {
-                    console.log('Theme toggle event handled');
-                });
                 await initializeCommands();
             } catch (error) {
                 console.error('Initialization failed:', error);
